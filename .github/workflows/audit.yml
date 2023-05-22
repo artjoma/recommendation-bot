@@ -21,8 +21,21 @@ jobs:
       - name: Verify dependencies
         run: go mod verify
 
-      - name: Build
-        run: go build -v ./...
+      - name: Prepare build dir
+        run: mkdir build
+      - name: Build Linux
+        run: go -ldflags "-s -w" -o build/recommendation-bot
+      - name: Build Win
+        run: env GOOS=windows GOARCH=amd64 go build -ldflags "-s -w" -o build/recommendation-bot.exe
+      - name: Build Mac
+        run: env GOOS=darwin GOARCH=amd64 go build -ldflags "-s -w" -o build/recommendation-bot-darwin
 
       - name: Run tests
         run: go test -race -vet=off ./...
+
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifact
+          path: build
+          retention-days: 20
