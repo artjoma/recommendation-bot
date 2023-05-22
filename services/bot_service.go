@@ -17,7 +17,7 @@ func NewTelegramBot(appCtx *AppCtx) *TelegramBotService {
 }
 
 /*
-Check example: https://api.telegram.org/bot5721906598:AAGix2-ryTeaOsy4Jtbq5zJ3iCH1Zb9wXrA/getMe
+Check example: https://api.telegram.org/botFFFFFFFFFFFFFF/getMe
 */
 func (service *TelegramBotService) StartBot() {
 	log.Info().Msg("Start bot service: " + service.appCtx.GetAppCfg().TokenId)
