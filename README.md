@@ -1,9 +1,9 @@
-## Recommendation Telegram bot
+# Recommendation Telegram bot
 <hr>
 This bot provide recommendation message logic when user write specific phrase(trigger) at public chat. Bot try recognize a phrase for each message at chat from any user
 and send to hime recommendation prepared message.
 
-# Configuration and setup:
+## Configuration and setup:
 Create a `config.yaml` file at the same folder where application binary
 ```yaml 
 # Bot token Id
